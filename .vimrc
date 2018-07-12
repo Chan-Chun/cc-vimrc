@@ -107,6 +107,7 @@ autocmd InsertEnter * se cul
 autocmd BufRead,BufNewFile *.vue setlocal filetype=vue.html.javascript.css " vim-vue插件
 autocmd VimEnter * NERDTree | wincmd p " The-NERD-tree 默认启动，打开后光标在编辑文件中
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif " 自动关闭
+autocmd BufNewFile,BufRead *.ts setlocal filetype=typescript "typescript 配置
 au BufRead,BufNewFile *.{md,mdown,mkd,mkdn,markdown,mdwn} set filetype=mkd  " vim-markdown
 
 map <Leader>w :NERDTreeToggle<CR>
@@ -155,9 +156,9 @@ Plugin 'Raimondi/delimitMate' " 括号自动补全
 Plugin 'lepture/vim-jinja' " jinja nunjucks模板
 Plugin 'crusoexia/vim-monokai' " monokai主题
 Plugin 'digitaltoad/vim-pug' "pug语法高亮
+Plugin 'leafgarland/typescript-vim' " Typescript
 
 call vundle#end() " 必须
 
 syntax on " 语法高亮
 colorscheme monokai " 设置主题
-
