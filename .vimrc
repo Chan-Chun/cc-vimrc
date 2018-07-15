@@ -100,6 +100,7 @@ let NERDTreeShowBookmarks=1 " The-NERD-tree
 let g:nerdtree_tabs_smart_startup_focus=2
 let NERDTreeStatusline="%{matchstr(getline('.'), '\\s\\zs\\w\\(.*\\)')}"
 let NERDSpaceDelims=1 " nerdcommenter 注释添加空格
+let g:ackprg = 'ag --nogroup --nocolor --column' " ack设置
 
 autocmd! bufwritepost .vimrc source %
 autocmd InsertLeave * se nocul  " 用浅色高亮当前行
@@ -109,6 +110,7 @@ autocmd VimEnter * NERDTree | wincmd p " The-NERD-tree 默认启动，打开后�
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif " 自动关闭
 autocmd BufNewFile,BufRead *.ts setlocal filetype=typescript "typescript 配置
 au BufRead,BufNewFile *.{md,mdown,mkd,mkdn,markdown,mdwn} set filetype=mkd  " vim-markdown
+au BufNewFile,BufRead *.ejs set filetype=html " ejs 配置
 
 map <Leader>w :NERDTreeToggle<CR>
 nnoremap <Leader>u :GundoToggle<CR>
@@ -156,7 +158,9 @@ Plugin 'Raimondi/delimitMate' " 括号自动补全
 Plugin 'lepture/vim-jinja' " jinja nunjucks模板
 Plugin 'crusoexia/vim-monokai' " monokai主题
 Plugin 'digitaltoad/vim-pug' "pug语法高亮
-Plugin 'leafgarland/typescript-vim' " Typescript
+Plugin 'leafgarland/typescript-vim' " Typescript语法高亮
+Plugin 'Valloric/YouCompleteMe' " 自动补全
+Plugin 'mileszs/ack.vim' " 代码搜索
 
 call vundle#end() " 必须
 
