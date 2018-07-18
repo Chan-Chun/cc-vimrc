@@ -81,8 +81,8 @@ let g:mapleader = ","
 let b:javascript_fold=1 " 打开javascript折叠
 let javascript_enable_domhtmlcss=1 " 打开javascript对dom、html和css的支持
 let loaded_matchparen = 0 "关闭自动高亮显示匹配的括号
-let g:ctrlp_working_path_mode = 'ra' " ctrlp插件配置
-let g:ctrlp_custom_ignore = '\v[\/](node_modules|coverage|target|dist)|(\.(swp|ico|git|svn))$' " ctrlp插件配置
+let g:ctrlp_working_path_mode = 'ra' " ctrlp插件配置 使用当前路径下
+let g:ctrlp_custom_ignore = '\v[\/](node_modules|coverage|target|dist)|(\.(swp|ico|git|svn))$' " ctrlp插件忽略文件
 let g:indent_guides_enable_on_vim_startup=1 " vim-indent-guides 随 vim 自启动
 let g:indent_guides_guide_size=1 " vim-indent-guides 色块宽度
 let g:gundo_right = 1 " gundo插件
@@ -95,7 +95,7 @@ let NERDTreeShowFiles=1 " The-NERD-tree
 let NERDTreeWinPos=1 " The-NERD-tree
 let NERDTreeWinPos="left" " The-NERD-tree
 let NERDTreeShowLineNumbers=1 " The-NERD-tree
-let NERDTreeIgnore=['\.pyc$', '\~$', '.DS_Store', '\.swp' ] "ignore files in NERDTree " The-NERD-tree
+let NERDTreeIgnore=['\.pyc$', '\~$', '.DS_Store', '\.swp' ] "ignore files in NERDTree
 let NERDTreeShowBookmarks=1 " The-NERD-tree
 let g:nerdtree_tabs_smart_startup_focus=2
 let NERDTreeStatusline="%{matchstr(getline('.'), '\\s\\zs\\w\\(.*\\)')}"
@@ -109,49 +109,50 @@ autocmd BufRead,BufNewFile *.vue setlocal filetype=vue.html.javascript.css " vim
 autocmd VimEnter * NERDTree | wincmd p " The-NERD-tree 默认启动，打开后光标在编辑文件中
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif " 自动关闭
 autocmd BufNewFile,BufRead *.ts setlocal filetype=typescript "typescript 配置
-au BufRead,BufNewFile *.{md,mdown,mkd,mkdn,markdown,mdwn} set filetype=mkd  " vim-markdown
-au BufNewFile,BufRead *.ejs set filetype=html " ejs 配置
+autocmd BufRead,BufNewFile *.{md,mdown,mkd,mkdn,markdown,mdwn} set filetype=mkd  " vim-markdown
+autocmd BufNewFile,BufRead *.ejs set filetype=html " ejs 配置
+autocmd BufNewFile,BufRead *.html,*.htm,*.shtml,*.stm set ft=jinja "jinja模板
 
+" leader和w打开NERDTree
 map <Leader>w :NERDTreeToggle<CR>
+" leader和u打开Gundo
 nnoremap <Leader>u :GundoToggle<CR>
-nmap <leader>h :Toc<cr>
-map  / <Plug>(easymotion-sn)
-map  n <Plug>(easymotion-next)
-map  N <Plug>(easymotion-prev)
+" vim buffer缓冲区操作
 nnoremap <C-tab> :bn<CR>
 nnoremap <C-s-tab> :bp<CR>
+" ack搜索操作
+nmap <Leader><Leader>a :Ack<space>-i<space>
 
 call vundle#begin()
 
 Plugin 'VundleVim/Vundle.vim' " 让vundle管理插件版本,必须
 Plugin 'mbriggs/mark.vim' " ,m高亮 ,n去除高亮 ,/下一个标签
+Plugin 'tpope/vim-repeat' " 重复操作：.
 Plugin 'tpope/vim-surround' " 处理跨多行或者是一些复杂的tag
 Plugin 'msanders/snipmate.vim'  " js代码自动补全插件
 Plugin 'docunext/closetag.vim' " 提供标签自动闭合
-Plugin 'repeat.vim' " 重复操作：.
-Plugin 'matchit.zip' " 在()，""以及HTML标签之间快速跳转,ctrl+%
+Plugin 'matchit.zip' " 在()以及HTML标签之间快速跳转,ctrl+%
 Plugin 'gregsexton/MatchTag' " 高亮两个配对的tag
 Plugin 'spiiph/vim-space' " 空格处理
 Plugin 'vim-scripts/trailing-whitespace' " 空格处理
-Plugin 'pangloss/vim-javascript' " 语法高亮
-Plugin 'groenewege/vim-less' " 语法高亮
-Plugin 'jelera/vim-javascript-syntax' " 语法高亮
-Plugin 'hail2u/vim-css3-syntax' " 语法高亮
-Plugin 'terryma/vim-multiple-cursors' " 多行操作 <c-n>
-Plugin 'othree/html5.vim' " html5
+Plugin 'pangloss/vim-javascript' " js语法高亮
+Plugin 'groenewege/vim-less' " less语法高亮
+Plugin 'jelera/vim-javascript-syntax' " js语法高亮
+Plugin 'hail2u/vim-css3-syntax' " css语法高亮
+Plugin 'terryma/vim-multiple-cursors' " 多光标操作 <c-n>选中下一个 <c-p>放弃选中 <c-x>跳过选中
+Plugin 'othree/html5.vim' " html5高亮
 Plugin 'yonchu/accelerated-smooth-scroll' " 平滑滚动插件
 Plugin 'tpope/vim-eunuch' " 重命名 :Rename {newname}
-Plugin 'altercation/vim-colors-solarized' " 配置颜色solarized主题
 Plugin 'kien/ctrlp.vim' " 模糊查询打开文件
 Plugin 'mattn/emmet-vim' " HTML生成<c-y>, 选中标签<c-y>d，跳转<c-y>n，注释：<c-y>/，合并标签：<c-y>j，移除标签对：<c-y>k
 Plugin 'scrooloose/nerdcommenter' " ,ci ：切换选中行的注释状态
-Plugin 'sjl/gundo.vim'  "编辑文件的时光机器 p对比，回车或者o选择
+Plugin 'sjl/gundo.vim'  "时光机器 p对比，回车或者o选择 时光机:gundo打开
 Plugin 'nathanaelkane/vim-indent-guides' " 可视化缩进插件
 Plugin 'mxw/vim-jsx' " react jsx插件
-Plugin 'posva/vim-vue' " 语法高亮
+Plugin 'posva/vim-vue' " vue语法高亮
 Plugin 'The-NERD-tree' " 树状显示文件目录 ,w切换
 Plugin 'plasticboy/vim-markdown'  " ]]下一标题，[[:上一标题，][下一子标题，[]上一子标题 ，]c当前标题，]u父标题（asdf），<leader>h 进入目录
-Plugin 'Lokaltog/vim-easymotion' " 快速移动 ,,w ,,j ,,k ,,f
+Plugin 'Lokaltog/vim-easymotion' " 快速移动 ,,w向下 ,,b向上 ,,j向下一列 ,,k向上一列 ,,f向下搜索 ,,F向上搜索 ,,s整屏搜索
 Plugin 'jistr/vim-nerdtree-tabs' " nerdtree 打开标签时保持目录
 Plugin 'editorconfig/editorconfig-vim' " 支持editorconfig
 Plugin 'Raimondi/delimitMate' " 括号自动补全
@@ -159,8 +160,9 @@ Plugin 'lepture/vim-jinja' " jinja nunjucks模板
 Plugin 'crusoexia/vim-monokai' " monokai主题
 Plugin 'digitaltoad/vim-pug' "pug语法高亮
 Plugin 'leafgarland/typescript-vim' " Typescript语法高亮
-Plugin 'Valloric/YouCompleteMe' " 自动补全
+Plugin 'Valloric/YouCompleteMe' " YCM自动补全
 Plugin 'mileszs/ack.vim' " 代码搜索
+Plugin 'vim-airline/vim-airline' "下导航飞机状态栏
 
 call vundle#end() " 必须
 
