@@ -54,7 +54,7 @@ set novisualbell " 不要闪烁
 set laststatus=2 " 总是显示状态行
 set number " 显示行号
 set list
-set listchars=tab:‣\ ,trail:·,precedes:«,extends:»,eol:\ , " 设置不可见字符
+set listchars=tab:‣\ ,trail:๏,precedes:«,extends:»,eol:\ , " 设置不可见字符
 set formatoptions=tcrqn " 自动格式化
 set autoindent " 继承前一行的缩进方式，特别适用于多行注释
 set smartindent " 智能自动缩进
