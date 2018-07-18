@@ -113,6 +113,7 @@ autocmd BufNewFile,BufRead *.ts setlocal filetype=typescript " typescript 配置
 autocmd BufRead,BufNewFile *.{md,mdown,mkd,mkdn,markdown,mdwn} set filetype=mkd  " vim-markdown
 autocmd BufNewFile,BufRead *.ejs set filetype=html " ejs 配置
 autocmd BufNewFile,BufRead *.html,*.htm,*.shtml,*.stm set ft=jinja " jinja模板
+autocmd BufNewFile,BufRead *.jade,*.pug set ft=pug " pug模板
 
 " leader和w打开NERDTree
 map <Leader>w :NERDTreeToggle<CR>
