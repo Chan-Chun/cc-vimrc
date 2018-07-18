@@ -6,8 +6,8 @@ set undodir=$HOME/.vim/undo " 需要提前创建该目录，否则不会生效
 set undolevels=1000 " max number of undos
 set undoreload=10000 " max lines to to save for undo
 set hidden " vim切换buffer(文件/tab)后仍然保留undo
-set autochdir "自动切换到文件所在文件夹
-set autoread "文件自动重载
+set autochdir " 自动切换到文件所在文件夹
+set autoread " 文件自动重载
 set autowrite " 文件自动保存
 set foldmethod=manual "启用缩进折叠
 set foldcolumn=0
@@ -45,15 +45,16 @@ set noerrorbells " 不让vim发出讨厌的滴滴声
 set showmatch " 高亮显示匹配的括号
 set matchtime=2 " 匹配括号高亮的时间（单位是十分之一秒）
 set ignorecase " 在搜索的时候忽略大小写
-set ru "标尺信息
+set ru " 标尺信息
 set ai " 自动缩进
-set hlsearch  "搜索逐字符高亮
+set hlsearch  " 搜索逐字符高亮
 set incsearch " 在搜索时，输入的词句的逐字符高亮（类似firefox的搜索）
 set scrolloff=3 " 光标移动到buffer的顶部和底部时保持3行距离
 set novisualbell " 不要闪烁
 set laststatus=2 " 总是显示状态行
 set number " 显示行号
-set list listchars=trail:๏, " 方便显示tab 和 空格
+set list
+set listchars=tab:‣\ ,trail:·,precedes:«,extends:»,eol:\ , " 设置不可见字符
 set formatoptions=tcrqn " 自动格式化
 set autoindent " 继承前一行的缩进方式，特别适用于多行注释
 set smartindent " 智能自动缩进
@@ -69,38 +70,38 @@ set background=dark
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip
 set fillchars+=stl:\ ,stlnc:\
 set t_Co=256
-set fo+=mB "对亚洲语言断行支持
+set fo+=mB " 对亚洲语言断行支持
 
-let b:javascript_fold=1  "打开javascript折叠
-let javascript_enable_domhtmlcss=1 "打开javascript对dom、html和css的支持
-let g:molokai_original = 1 "设置颜色
-let g:monokai_term_italic = 1 "monokai主题设置
-let g:monokai_gui_italic = 1 "monokai主题设置
-let mapleader = ","  " map leader键设置
-let g:mapleader = ","
+let b:javascript_fold=1  " 打开javascript折叠
+let javascript_enable_domhtmlcss=1 " 打开javascript对dom、html和css的支持
+let g:molokai_original=1 " 设置颜色
+let g:monokai_term_italic=1 " monokai主题设置
+let g:monokai_gui_italic=1 " monokai主题设置
+let mapleader="," " map leader键设置
+let g:mapleader=","
 let b:javascript_fold=1 " 打开javascript折叠
 let javascript_enable_domhtmlcss=1 " 打开javascript对dom、html和css的支持
-let loaded_matchparen = 0 "关闭自动高亮显示匹配的括号
-let g:ctrlp_working_path_mode = 'ra' " ctrlp插件配置 使用当前路径下
-let g:ctrlp_custom_ignore = '\v[\/](node_modules|coverage|target|dist)|(\.(swp|ico|git|svn))$' " ctrlp插件忽略文件
+let loaded_matchparen=0  " 关闭自动高亮显示匹配的括号
+let g:ctrlp_working_path_mode='ra' " ctrlp插件配置 使用当前路径下
+let g:ctrlp_custom_ignore='\v[\/](node_modules|coverage|target|dist)|(\.(swp|ico|git|svn))$' " ctrlp插件忽略文件
 let g:indent_guides_enable_on_vim_startup=1 " vim-indent-guides 随 vim 自启动
 let g:indent_guides_guide_size=1 " vim-indent-guides 色块宽度
-let g:gundo_right = 1 " gundo插件
-let g:jsx_ext_required = 0 " vim-jsx插件 让js文件也支持jsx插件
+let g:gundo_right=1 " gundo插件
+let g:jsx_ext_required=0 " vim-jsx插件 让js文件也支持jsx插件
 let g:vim_markdown_frontmatter=1 " vim-markdown
-let g:vim_markdown_toc_autofit = 1 " vim-markdown
+let g:vim_markdown_toc_autofit=1 " vim-markdown
 let g:vim_markdown_folding_disabled=1 " vim-markdown
 let NERDTreeShowHidden=1 " The-NERD-tree
 let NERDTreeShowFiles=1 " The-NERD-tree
 let NERDTreeWinPos=1 " The-NERD-tree
 let NERDTreeWinPos="left" " The-NERD-tree
 let NERDTreeShowLineNumbers=1 " The-NERD-tree
-let NERDTreeIgnore=['\.pyc$', '\~$', '.DS_Store', '\.swp' ] "ignore files in NERDTree
+let NERDTreeIgnore=['\.pyc$', '\~$', '.DS_Store', '\.swp' ] " ignore files in NERDTree
 let NERDTreeShowBookmarks=1 " The-NERD-tree
 let g:nerdtree_tabs_smart_startup_focus=2
 let NERDTreeStatusline="%{matchstr(getline('.'), '\\s\\zs\\w\\(.*\\)')}"
 let NERDSpaceDelims=1 " nerdcommenter 注释添加空格
-let g:ackprg = 'ag --nogroup --nocolor --column' " ack设置
+let g:ackprg='ag --nogroup --nocolor --column' " ack设置
 
 autocmd! bufwritepost .vimrc source %
 autocmd InsertLeave * se nocul  " 用浅色高亮当前行
@@ -108,10 +109,10 @@ autocmd InsertEnter * se cul
 autocmd BufRead,BufNewFile *.vue setlocal filetype=vue.html.javascript.css " vim-vue插件
 autocmd VimEnter * NERDTree | wincmd p " The-NERD-tree 默认启动，打开后光标在编辑文件中
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif " 自动关闭
-autocmd BufNewFile,BufRead *.ts setlocal filetype=typescript "typescript 配置
+autocmd BufNewFile,BufRead *.ts setlocal filetype=typescript " typescript 配置
 autocmd BufRead,BufNewFile *.{md,mdown,mkd,mkdn,markdown,mdwn} set filetype=mkd  " vim-markdown
 autocmd BufNewFile,BufRead *.ejs set filetype=html " ejs 配置
-autocmd BufNewFile,BufRead *.html,*.htm,*.shtml,*.stm set ft=jinja "jinja模板
+autocmd BufNewFile,BufRead *.html,*.htm,*.shtml,*.stm set ft=jinja " jinja模板
 
 " leader和w打开NERDTree
 map <Leader>w :NERDTreeToggle<CR>
