@@ -165,6 +165,7 @@ Plugin 'leafgarland/typescript-vim' " Typescript语法高亮
 Plugin 'Valloric/YouCompleteMe' " YCM自动补全
 Plugin 'mileszs/ack.vim' " 代码搜索
 Plugin 'vim-airline/vim-airline' "下导航飞机状态栏
+Plugin 'tpope/vim-fugitive' "提供git命令支持
 
 call vundle#end() " 必须
 
