@@ -114,6 +114,8 @@ autocmd BufRead,BufNewFile *.{md,mdown,mkd,mkdn,markdown,mdwn} set filetype=mkd 
 autocmd BufNewFile,BufRead *.ejs set filetype=html " ejs 配置
 autocmd BufNewFile,BufRead *.html,*.htm,*.shtml,*.stm set ft=jinja " jinja模板
 autocmd BufNewFile,BufRead *.jade,*.pug set ft=pug " pug模板
+autocmd BufNewFile,BufRead *.axml, set ft=xml " 支付宝小程序XML
+autocmd BufNewFile,BufRead *.acss, set ft=css " 支付宝小程序样式
 
 " leader和w打开NERDTree
 map <Leader>w :NERDTreeToggle<CR>
@@ -130,7 +132,7 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim' " 让vundle管理插件版本,必须
 Plugin 'mbriggs/mark.vim' " ,m高亮 ,n去除高亮 ,/下一个标签
 Plugin 'tpope/vim-repeat' " 重复操作：.
-Plugin 'tpope/vim-surround' " 处理跨多行或者是一些复杂的tag
+Plugin 'tpope/vim-surround' " 处理跨多行或者是一些复杂的tag cs\"' 替换\"为' cs'<q> 替换'为标签 ds\"删除 ysiw] 增加中括号包围
 Plugin 'msanders/snipmate.vim'  " js代码自动补全插件
 Plugin 'docunext/closetag.vim' " 提供标签自动闭合
 Plugin 'matchit.zip' " 在()以及HTML标签之间快速跳转,ctrl+%
