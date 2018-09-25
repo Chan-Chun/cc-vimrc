@@ -136,7 +136,7 @@ Plugin 'tpope/vim-surround' " 处理跨多行或者是一些复杂的tag cs\"' �
 Plugin 'msanders/snipmate.vim'  " js代码自动补全插件
 Plugin 'docunext/closetag.vim' " 提供标签自动闭合
 Plugin 'matchit.zip' " 在()以及HTML标签之间快速跳转,ctrl+%
-Plugin 'gregsexton/MatchTag' " 高亮两个配对的tag
+" Plugin 'gregsexton/MatchTag' " 高亮两个配对的tag
 Plugin 'spiiph/vim-space' " 空格处理
 Plugin 'vim-scripts/trailing-whitespace' " 空格处理
 Plugin 'pangloss/vim-javascript' " js语法高亮
