@@ -106,7 +106,7 @@ let g:ackprg='ag --nogroup --nocolor --column' " ack设置
 autocmd! bufwritepost .vimrc source %
 autocmd InsertLeave * se nocul  " 用浅色高亮当前行
 autocmd InsertEnter * se cul
-autocmd BufRead,BufNewFile *.vue setlocal filetype=vue.html.javascript.css " vim-vue插件
+autocmd BufRead,BufNewFile *.vue setlocal filetype=vue " vim-vue插件
 autocmd VimEnter * NERDTree | wincmd p " The-NERD-tree 默认启动，打开后光标在编辑文件中
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif " 自动关闭
 autocmd BufNewFile,BufRead *.ts setlocal filetype=typescript " typescript 配置
