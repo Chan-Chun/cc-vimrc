@@ -13,8 +13,6 @@ set foldmethod=manual "启用缩进折叠
 set foldcolumn=0
 set foldlevel=3
 set foldenable
-" set lines=35 " 设置窗口大小
-" set columns=120
 set fenc=utf-8 " 设定默认解码
 set fencs=utf-8,usc-bom,euc-jp,gb18030,gbk,gb2312,cp936
 set nocompatible " 不要使用vi的键盘模式，而是vim自己的
@@ -136,7 +134,6 @@ Plugin 'tpope/vim-surround' " 处理跨多行或者是一些复杂的tag cs\"' �
 Plugin 'msanders/snipmate.vim'  " js代码自动补全插件
 Plugin 'docunext/closetag.vim' " 提供标签自动闭合
 Plugin 'matchit.zip' " 在()以及HTML标签之间快速跳转,ctrl+%
-" Plugin 'gregsexton/MatchTag' " 高亮两个配对的tag
 Plugin 'spiiph/vim-space' " 空格处理
 Plugin 'vim-scripts/trailing-whitespace' " 空格处理
 Plugin 'pangloss/vim-javascript' " js语法高亮
