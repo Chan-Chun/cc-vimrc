@@ -100,6 +100,7 @@ let g:nerdtree_tabs_smart_startup_focus=2
 let NERDTreeStatusline="%{matchstr(getline('.'), '\\s\\zs\\w\\(.*\\)')}"
 let NERDSpaceDelims=1 " nerdcommenter 注释添加空格
 let g:ackprg='ag --nogroup --nocolor --column' " ack设置
+let g:tagbar_ctags_bin='ctags' " ctags设置 注意要配合zshrc的ctags alias使用
 
 autocmd! bufwritepost .vimrc source %
 autocmd InsertLeave * se nocul  " 用浅色高亮当前行
@@ -114,6 +115,7 @@ autocmd BufNewFile,BufRead *.html,*.htm,*.shtml,*.stm set ft=jinja " jinja模板
 autocmd BufNewFile,BufRead *.jade,*.pug set ft=pug " pug模板
 autocmd BufNewFile,BufRead *.axml, set ft=xml " 支付宝小程序XML
 autocmd BufNewFile,BufRead *.acss, set ft=css " 支付宝小程序样式
+autocmd BufReadPost *.cpp,*.c,*.h,*.hpp,*.cc,*.cxx call tagbar#autoopen() " C系语言自动ctags
 
 " leader和w打开NERDTree
 map <Leader>w :NERDTreeToggle<CR>
@@ -124,6 +126,8 @@ nnoremap <C-tab> :bn<CR>
 nnoremap <C-s-tab> :bp<CR>
 " ack搜索操作
 nmap <Leader><Leader>a :Ack<space>-i<space>
+" Tagbar操作
+nmap <F8> :TagbarToggle<CR>
 
 call vundle#begin()
 
@@ -163,8 +167,9 @@ Plugin 'digitaltoad/vim-pug' "pug语法高亮
 Plugin 'leafgarland/typescript-vim' " Typescript语法高亮
 Plugin 'Valloric/YouCompleteMe' " YCM自动补全
 Plugin 'mileszs/ack.vim' " 代码搜索
-Plugin 'vim-airline/vim-airline' "下导航飞机状态栏
-Plugin 'tpope/vim-fugitive' "提供git命令支持
+Plugin 'vim-airline/vim-airline' " 下导航飞机状态栏
+Plugin 'tpope/vim-fugitive' " 提供git命令支持
+Plugin 'majutsushi/tagbar' " ctags
 
 call vundle#end() " 必须
 
