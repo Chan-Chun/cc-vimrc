@@ -170,6 +170,7 @@ Plugin 'mileszs/ack.vim' " 代码搜索
 Plugin 'vim-airline/vim-airline' " 下导航飞机状态栏
 Plugin 'tpope/vim-fugitive' " 提供git命令支持
 Plugin 'majutsushi/tagbar' " ctags
+Plugin 'fatih/vim-go' " Go语言支持
 
 call vundle#end() " 必须
 
