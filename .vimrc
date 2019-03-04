@@ -69,6 +69,7 @@ set wildignore+=*/tmp/*,*.so,*.swp,*.zip
 set fillchars+=stl:\ ,stlnc:\
 set t_Co=256
 set fo+=mB " 对亚洲语言断行支持
+set updatetime=100 " vim更新时间100ms 可以及时看到gitgutter的改动
 
 let b:javascript_fold=1  " 打开javascript折叠
 let javascript_enable_domhtmlcss=1 " 打开javascript对dom、html和css的支持
@@ -116,6 +117,7 @@ autocmd BufNewFile,BufRead *.jade,*.pug set ft=pug " pug模板
 autocmd BufNewFile,BufRead *.axml, set ft=xml " 支付宝小程序XML
 autocmd BufNewFile,BufRead *.acss, set ft=css " 支付宝小程序样式
 autocmd BufReadPost *.cpp,*.c,*.h,*.hpp,*.cc,*.cxx call tagbar#autoopen() " C系语言自动ctags
+autocmd FileType vue syntax sync fromstart " 让Vue提示不要停止
 
 " leader和w打开NERDTree
 map <Leader>w :NERDTreeToggle<CR>
@@ -128,6 +130,12 @@ nnoremap <C-s-tab> :bp<CR>
 nmap <Leader><Leader>a :Ack<space>-i<space>
 " Tagbar操作
 nmap <F8> :TagbarToggle<CR>
+
+" DiffOrig 显示未保存的对比
+if !exists(":DiffOrig")
+  command DiffOrig vert new | set bt=nofile | r # | 0d_ | diffthis
+        \ | wincmd p | diffthis
+endif
 
 call vundle#begin()
 
@@ -171,6 +179,8 @@ Plugin 'vim-airline/vim-airline' " 下导航飞机状态栏
 Plugin 'tpope/vim-fugitive' " 提供git命令支持
 Plugin 'majutsushi/tagbar' " ctags
 Plugin 'fatih/vim-go' " Go语言支持
+Plugin 'heavenshell/vim-jsdoc' " js-doc
+Plugin 'airblade/vim-gitgutter' " vim-gitgutter 显示git的改动
 
 call vundle#end() " 必须
 
