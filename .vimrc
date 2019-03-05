@@ -69,7 +69,7 @@ set wildignore+=*/tmp/*,*.so,*.swp,*.zip
 set fillchars+=stl:\ ,stlnc:\
 set t_Co=256
 set fo+=mB " 对亚洲语言断行支持
-set updatetime=100 " vim更新时间100ms 可以及时看到gitgutter的改动
+set updatetime=1000 " vim更新时间1000ms 可以及时看到gitgutter的改动
 
 let b:javascript_fold=1  " 打开javascript折叠
 let javascript_enable_domhtmlcss=1 " 打开javascript对dom、html和css的支持
@@ -179,7 +179,7 @@ Plugin 'vim-airline/vim-airline' " 下导航飞机状态栏
 Plugin 'tpope/vim-fugitive' " 提供git命令支持
 Plugin 'majutsushi/tagbar' " ctags
 Plugin 'fatih/vim-go' " Go语言支持
-Plugin 'heavenshell/vim-jsdoc' " js-doc
+Plugin 'heavenshell/vim-jsdoc' " js-doc 移动到function 敲:JsDoc
 Plugin 'airblade/vim-gitgutter' " vim-gitgutter 显示git的改动
 
 call vundle#end() " 必须
