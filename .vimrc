@@ -69,7 +69,6 @@ set wildignore+=*/tmp/*,*.so,*.swp,*.zip
 set fillchars+=stl:\ ,stlnc:\
 set t_Co=256
 set fo+=mB " 对亚洲语言断行支持
-set updatetime=1000 " vim更新时间1000ms 可以及时看到gitgutter的改动
 
 let b:javascript_fold=1  " 打开javascript折叠
 let javascript_enable_domhtmlcss=1 " 打开javascript对dom、html和css的支持
