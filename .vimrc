@@ -115,6 +115,7 @@ autocmd BufNewFile,BufRead *.html,*.htm,*.shtml,*.stm set ft=jinja " jinja模板
 autocmd BufNewFile,BufRead *.jade,*.pug set ft=pug " pug模板
 autocmd BufNewFile,BufRead *.axml, set ft=xml " 支付宝小程序XML
 autocmd BufNewFile,BufRead *.acss, set ft=css " 支付宝小程序样式
+autocmd BufNewFile,BufRead *.sjs, set ft=javascript " 支付宝sjs 模板样式
 autocmd BufReadPost *.cpp,*.c,*.h,*.hpp,*.cc,*.cxx call tagbar#autoopen() " C系语言自动ctags
 autocmd FileType vue syntax sync fromstart " 让Vue提示不要停止
 
